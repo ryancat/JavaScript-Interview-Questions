@@ -11,6 +11,60 @@
  * *DO NOT* sort strings.
  */
 
+function prepare_str_nosort (str) {
+    return str.replace(/ /g, '').toLowerCase().split('');
+}
+
+function is_ana_nosort (str1, str2) {
+    var str1_arr = prepare_str_nosort(str1), 
+        str2_arr = prepare_str_nosort(str2),
+        i, len1 = str1_arr.length, len2 = str2_arr.length, cur;
+
+
+    if (len1 !== len2) {
+        return false;
+    }
+
+    for (i = 0; i < len1; i += 1) {
+        cur = str2_arr.indexOf(str1_arr[i]);
+        if (cur === -1) {
+            return false;
+        }
+
+        str2_arr[cur] = undefined;
+    }
+
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

@@ -10,6 +10,54 @@
  * Implement an algorithm to see whether a String has all unique characters.
  */
 
+
+// use cache
+
+function is_unique_str (str) {
+    var cache = {}, len = str.length, i, cur, key;
+
+    for (i = 0; i < len; i += 1) {
+        cur = str[i];
+        key = cur;
+        if (!cache[key]) {
+            cache[key] = cur;
+        } else {
+            return false;
+        }
+    }
+
+    cache = null;
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 

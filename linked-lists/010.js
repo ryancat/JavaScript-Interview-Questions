@@ -25,6 +25,46 @@
  */
 
 
+
+function isAcyclicList (list) {
+    var cur1 = head, cur2 = head;
+
+    while (cur1 && cur2) {
+        if (cur1.next && cur2.next && cur2.next.next) {
+            cur1 = cur1.next;
+            cur2 = cur2.next.next;
+
+            if (cur1 === cur2) {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * @class {public} ListElement - denotes a list node.
  * @param {ListElement} next - the next node. (null if it's tail)

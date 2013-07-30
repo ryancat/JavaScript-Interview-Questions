@@ -11,6 +11,71 @@
  * without using any additional buffer.
  */
 
+
+function remove_duplicate_str (arr) {
+    var len = arr.length, i, j, cur;
+
+    for (i = 0; i < len; i += 1) {
+        cur = arr[i];
+        for (j = i + 1; j < len; j += 1) {
+            if (cur === arr[j]) {
+                console.log(cur);
+                arr = arr.slice(0, j).concat(arr.slice(j + 1));
+                len -= 1;
+                j -= 1;
+            }
+        }
+    }
+
+    return arr;
+}
+
+
+
+// in-place remove duplicate
+
+function remove_dupli_inplace (str_arr) {
+    var len = str_arr.length, tail = 1, i, j, cur;
+
+    for (i = 1; i < len; i += 1) {
+        cur = str_arr[i];
+        for (j = 0; j < tail; j += 1) {
+            if (str_arr[j] === cur) {
+                break;
+            }
+        }
+
+        if (j === tail) {
+            str_arr[tail] = str_arr[i];
+            tail += 1;
+        }
+    }
+
+    str_arr.length = tail;
+
+    return str_arr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 
@@ -50,7 +115,7 @@ function removeDuplicates(ar) {
             tail++;
         }
     }
-
+    console.log(ar);
     ar.length = tail;
 
     return ar;

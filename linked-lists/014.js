@@ -11,6 +11,39 @@
  * access to that element.
  */
 
+
+
+function remove_node (ele) {
+    if (ele) {
+        ele.value = ele.next.value;
+        ele.next = ele.next.next;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

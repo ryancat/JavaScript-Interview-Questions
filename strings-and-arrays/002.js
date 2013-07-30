@@ -22,6 +22,69 @@
  *      'Th ldr Scrlls f Mrrwnd'
  */
 
+
+//  This method is working but not good. Too much look for in array
+
+function removeChars_my (str, remove) {
+    var len = str.length, r_len = remove.length, i, j, r_temp;
+
+    if (r_len === 0 || str === 0) {
+        return str;
+    }
+
+    for (i = 0; i < r_len; i += 1) {
+        r_temp = remove[i];
+        for (j = 0; j < len; j +=1 ) {
+            if (str[j] === r_temp) {
+                str = str.slice(0, j) + str.slice(j+1);
+            }
+        }
+    }
+
+    return str;
+}
+
+
+
+function removeChars_my2 (str, remove) {
+    var len = str.length, r_len = remove.length, result_buffer = [], 
+        remove_list = {}, i, j, cur;
+
+
+    for (i = 0; i < r_len; i += 1) {
+        remove_list[remove[i]] = true;;
+    }
+
+    for (j = 0; j < len; j += 1) {
+        cur = str[j];
+        if (!remove_list[cur]) {
+            result_buffer.push(cur);
+        }
+    }
+
+    return result_buffer.join("");
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 

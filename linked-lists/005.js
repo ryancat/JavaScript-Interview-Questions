@@ -12,6 +12,48 @@
  * Maintain a global reference to the top of the stack.
  */
 
+
+
+var top_stack = null;
+
+var push_stack = function (data) {
+    var element = new List(data);
+    element.next = top_stack;
+    console.log(element);
+    top_stack = element;
+};
+
+
+var pop_stack = function () {
+    var element = top_stack;
+    top_stack = top_stack.next;
+
+    return element;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /*____________________________________________________________________________*/
 
 /**
@@ -19,66 +61,43 @@
  * @param {ListElement} next - the next node. (null if it's tail)
  * @param {Integer} data - list data.
  */
-function ListElement(next, data) {
-    this.next = next;
-    this.data = data;
-}
+// function ListElement(next, data) {
+//     this.next = next;
+//     this.data = data;
+// }
 
-/*
- * A reference to the top.
- */
-var top = null;
+// /*
+//  * A reference to the top.
+//  */
+// var top_stack = null;
 
-/**
- * @function {public static} push
- *
- * Pushes data to the stack.
- *
- * @param {Integer} data - the data to push.
- *
- */
-function push(data) {
-    var element = new ListElement(null, data);
-    element.next = top;
-}
+// /**
+//  * @function {public static} push
+//  *
+//  * Pushes data to the stack.
+//  *
+//  * @param {Integer} data - the data to push.
+//  *
+//  */
+// function push(data) {
+//     var element = new ListElement(null, data);
+//     element.next = top;
+// }
 
-/**
- * @function {public static} pop
- *
- * Pops data from the stack.
- *
- * @return the popped data.
- */
-function pop() {
-    var data = top.data;
-    top = top.next;
-    return data;
-}
+// /**
+//  * @function {public static} pop
+//  *
+//  * Pops data from the stack.
+//  *
+//  * @return the popped data.
+//  */
+// function pop() {
+//     var data = top.data;
+//     top = top.next;
+//     return data;
+// }
 
 /*____________________________________________________________________________*/
-
-var firstElement = new ListElement(null, 20);
-var secondElement = new ListElement(null, 30);
-var thirdElement = new ListElement(null, 40);
-
-firstElement.next = secondElement;
-secondElement.next = thirdElement;
-
-top = firstElement;
-
-console.log(top);
-push(50);
-console.log(top);
-push(60);
-console.log(top);
-
-var data = null;
-
-while (top) {
-    data = pop();
-    console.log(data);
-    console.log(top);
-}
 
 /*____________________________________________________________________________*/
 

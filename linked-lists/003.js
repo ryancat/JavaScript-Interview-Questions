@@ -13,6 +13,44 @@
 
  /*____________________________________________________________________________*/
 
+
+List.prototype.find_element = function (data) {
+    var that = this, result = [];
+
+    do {
+        if (that.value === data) {
+            result.push(that);
+        }
+    } while (that = that.next);
+
+    return result;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * @class {public} ListElement - denotes a list node.
  * @param {ListElement} next - the next node. (null if it's tail)

@@ -11,6 +11,63 @@
  * and a Number back to a String, without using type coercion or eval.
  */
 
+
+function str_to_num (str) {
+    //return str - '0';
+    var is_neg = false, zero = '0'.charCodeAt(0), len = str.length, i, num = 0;
+
+    if (str[0] === "-") {
+        is_neg = true;
+        str = str.slice(1);
+        len -= 1;
+    }
+
+    for (i = 0; i < len; i += 1) {
+        num *= 10;
+        num += (str[i].charCodeAt(0) - zero);
+    }
+    return is_neg ? num * (-1) : num;
+}
+
+function num_to_str (num) {
+    var result = [], cur; 
+
+    while (num > 10) {
+        cur = num % 10;
+        result.unshift(cur);
+
+        num = Math.floor(num / 10);
+    }
+
+    result.unshift(num);
+
+    console.log(result);
+
+    return result.join('');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

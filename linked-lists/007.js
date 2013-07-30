@@ -13,6 +13,86 @@
  * Assume a global pointer to the head.
  */
 
+
+var buffer = [];
+var head = null;
+
+var find_element_m = function (list, m) {
+    var current = 0;
+    if (!list || m < 0) {
+        return null;
+    }
+
+    if (!head.next) {
+        if (m === 1) {
+            return head;
+        } else {
+            return null;
+        }
+    }
+
+    do {
+        buffer[current % m] = head;
+        console.log(buffer, current % m);
+        current += 1;
+        head = head.next;
+    } while (head !== undefined);
+
+    head = list;
+    
+    if (current < m) {
+        return null;
+    } else {
+        console.log(current);
+        return buffer[current % m];
+    }
+};
+
+var find_ele_m_new = function (list, m) {
+    var cur = head, result = head, i; 
+
+    for (i = 0; i < m - 1; i += 1) {
+        if (cur.next) {
+            cur = cur.next;
+        } else {
+            return null;
+        }
+    }
+
+    while (cur.next) {
+        cur = cur.next;
+        result = result.next;
+    }
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /*____________________________________________________________________________*/
 
 /**

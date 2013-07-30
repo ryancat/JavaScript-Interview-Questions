@@ -11,6 +11,47 @@
  * (for example: 'Star Wars' is a rotation of 'arsStar W')
  */
 
+
+function is_rotated_str (str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    return is_substr(str1, str2+str2);
+}
+
+function is_substr (str_t, str) {
+    return str.indexOf(str_t) !== -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

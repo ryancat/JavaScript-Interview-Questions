@@ -10,6 +10,54 @@
  * Write a code to remove duplicates from a linked list.
  */
 
+
+function remove_duplicates (list) {
+    var cur = list, cache = {}, key, temp_prev, to_delete = [];
+
+    while (cur) {
+        key = cur.value.toString();
+        if (!cache[key]) {
+            cache[key] = cur;
+        } else {
+            temp_prev.next = cur.next;
+            to_delete.push(cur);
+            cur = temp_prev;
+        }
+        temp_prev = cur;
+        cur = cur.next;
+    }
+
+    cache = null;
+    to_delete = null;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

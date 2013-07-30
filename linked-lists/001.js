@@ -23,6 +23,8 @@ function make_list (value, next) {
 }
 
 
+var top_stack = null;
+
 // Correct
 var List = function (value, next) {
 	this.value = value;
@@ -33,56 +35,80 @@ var List = function (value, next) {
 // Let's do more
 List.prototype = {
 
-	// Validate list
-	checkList: function (list) {
-
-		if (list) {
-			return list.hasOwnProperty('value') && 
-				list.hasOwnProperty('next') && this.checkList(this.next);
+	make_list: function (n) {
+		var result = new List(1), idx = 2;
+		
+		while (idx <= n) {	
+			result.push(new List(idx));
+			idx += 1;
 		}
-
-		return true;
+		return result;
 	},
+
+	// Validate list
+	checkList: function () {
+		var that = this;
+		while(that.next) {
+			if (!that.next['checkList']) {
+				return false;
+			}
+			that = that.next;
+		}
+		return true;
+ 	},
 
 	// Push function 
 	push: function (list) {
+		var that = this;
 
-		while (list) {
-			if (list.next) {
-				this = this.next;
-				break;
-			}
-
-			if (this.checkList(list)) {
-				this.next = list;
-			}
+		if (typeof list === 'undefined' || !list['checkList']) {
+			return false;
 		}
-		
+
+		while (that.next && that.next['checkList']) {
+			that = that.next;
+		}
+
+		that.next = list;
+		return true;
 	},
 
 	// Pop function
 	pop: function () {
-		var result;
+		var that = this, another;
 
-		while (this) {
-			if (this.next) {
-				if (this.next.next) {
-					this = this.next;
-					break;
-				} else {
-					result = this.next;
-					this.next = undefined;
-
-					return result;
-				}
-			}
-			result = this;
-			this = undefined;
-			return result;
+		while (that.next && that.next['checkList']) {
+			another = that;
+			that = that.next;
 		}
 
-		return undefined;
-	}
+		if (another) {
+			another.next = undefined;
+		}
+
+		// TODO: HOW TO DELETE 'this'??
+
+		return that;
+	},
+
+	last: function () {
+		var that = this;
+
+		while (that.next) {
+			that = that.next;
+		}
+
+		return that;
+	},
+
+
+	// push: function (list) {
+	// 	var that = this;
+	// 	if (list['checkList']) {
+	// 		list.last().next = top_stack;
+	// 		top_stack = list;
+	// 	}
+	// }
 
 
 }

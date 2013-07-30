@@ -22,6 +22,76 @@
   *     'you. in sense I side dark The Dooku. become, have you Powerful'
   */
 
+
+function reverseStr_my (str) {
+  return join_my(reverseArr_my(splitStr_my(str, " ")), " ");
+}
+
+
+/// If not using high level function
+
+function splitStr_my (str, flag) {
+  var i, len = str.length || 0, cur, head = 0, tail = 0, result = [];
+
+  for (i = 0; i < len; i += 1) {
+    cur = str[i];
+    tail = i;
+    if (cur === flag) {
+      result.push(str.slice(head, tail));
+      head = i + 1;
+    }
+
+    if (i === len - 1 && cur !== flag) {
+      result.push(str.slice(head, tail));
+    }
+  }
+
+  return result;
+}
+
+function reverseArr_my (arr) {
+  var result = [], i, len = arr.length;
+
+  for (i = 0; i < len; i += 1) {
+    result.unshift(arr[i]);
+  }
+
+  return result;
+}
+
+
+function join_my (arr, flag) {
+  var result = "", i, len = arr.length;
+
+  for (i = 0; i < len; i += 1) {
+    if (i < len - 1) {
+      result += arr[i] + flag;
+    } else {
+      result += arr[i];
+    }
+    
+  }
+
+  return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 

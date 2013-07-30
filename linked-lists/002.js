@@ -14,6 +14,47 @@
 
  /*____________________________________________________________________________*/
 
+
+
+// var List = function (value, next) {
+//     this.value = value;
+//     this.next = next;
+// };
+
+
+// TODO how to change this reference????
+
+var shift_list = function (head, data) {
+    // Assume head is the head of the list it exists
+    var new_list = new List(data);
+    new_list.push(head);
+
+    return new_list;
+}
+
+
+List.prototype.shift_list = function (value) {
+    var that = this;
+    console.log(Object.create.apply(that, List(value, that)))
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * @class {public} ListElement - denotes a list node.
  * @param {ListElement} next - the next node. (null if it's tail)

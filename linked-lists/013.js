@@ -11,6 +11,59 @@
  * additional data structures.
  */
 
+var to_delete = [];
+function remove_duplicates_brust (list, to_delete) {
+    var cur = list, cur_data;
+
+    if (cur) {
+        cur_data = cur.value;
+        while (cur) {
+            if (cur.next) {
+                if (cur.next.value === cur_data) {
+                    to_delete.push(cur.next);
+                    cur.next = cur.next.next;
+                }
+            }
+
+            cur = cur.next;
+        }
+
+        remove_duplicates_brust(list.next, to_delete);
+    } else {
+        return true;
+    }
+    
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

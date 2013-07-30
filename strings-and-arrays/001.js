@@ -11,6 +11,48 @@
   * in a String.
   */
 
+var str = "r6ddurviuhbydtijkbhjkfdsgfisda;khrpiogyhroeignkjreghiusdhfksdbfuk";
+
+function findFirstSingleChar (str) {
+    var cache = [], i = 0, cur;
+
+    while (str.slice(i, i+1)) {
+        cur = str.slice(i, i+1);
+        if (cache.indexOf(cur) === -1) {
+            cache.push(cur);
+        } else {
+            cache.splice(cache.indexOf(cur), 1);
+        }
+
+        i += 1;
+    }
+    return cache[0];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

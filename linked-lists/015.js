@@ -14,6 +14,77 @@
  * Use the ListElement class in 001.js
  */
 
+
+
+
+
+function math_add_list (list1, list2) {
+    var head1 = list1, head2 = list2, cur1 = head1, cur2 = head2, carry = 0, sum = 0, result = new List(-1), result_tail = result;
+
+    while (cur1 || cur2) {
+        carry = 0;
+        console.log(result_tail);
+        result_tail.next = new List(0);
+        console.log(result_tail.next);
+        result_tail = result_tail.next;
+        console.log(result_tail);
+        if (!cur1 || !cur2) {
+            if (cur1) {
+                sum = cur1.value;
+            } else {
+                sum = cur2.value;
+            }
+            result_tail.value = sum + carry;
+            carry = 0;
+        } else {
+            sum = cur1.value + cur2.value;
+            if (sum > 9) {
+                sum -= 10;
+                result_tail.value = sum + carry;
+                carry = 1;
+            } else {
+                result_tail.value = sum + carry;
+                carry = 0;
+            }
+        }
+
+        if (cur1) {
+            cur1 = cur1.next;
+        }
+        if (cur2) {
+            cur2 = cur2.next;
+        }
+    }
+
+    return result;
+}
+
+
+var l1 = new List(2);
+l1.next = new List(1);
+
+var l2 = new List(5);
+l2.next = new List(3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 function addLists(node1, node2, carry) {

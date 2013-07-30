@@ -11,6 +11,54 @@
  * *DO NOT* use Regular Expressions.
  */
 
+function replace_spaces (str) {
+    var str_arr, i, cur, len = str.length;
+
+    str_arr = str.split('');
+
+    for (i = 0; i < len; i += 1) {
+        cur = str_arr[i];
+        if (cur === ' ') {
+            str_arr[i] = '%20';
+        }
+    }
+
+    return str_arr.join('');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

@@ -12,6 +12,39 @@
  * for a multi-level doubly linked list of integers.
  */
 
+
+var D_List = function (value, next, prev, child) {
+    this.value = value;
+    this.next = next;
+    this.prev = prev;
+    this.child = child;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /*____________________________________________________________________________*/
 
 /**

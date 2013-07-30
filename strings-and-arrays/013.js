@@ -11,6 +11,66 @@
  * is 0 the entire row and column of the matrix is set to 0.
  */
 
+
+function set_to_zero (mat) {
+  var r, c, m = mat.length, n = mat[0].length, hash = {}, key, temp;
+
+  for (r = 0; r < m; r += 1) {
+    for (c = 0; c < n; c += 1) {
+      key = r.toString() + ' ' + c.toString();
+      if (mat[r][c] === 0 && !hash[key]) {
+        for (temp = 0; temp < m; temp += 1) {
+          key = temp.toString() + ' ' + c.toString();
+          if (mat[temp][c] !== 0) {
+            mat[temp][c] = 0;
+            hash[key] = true;
+          } else {
+            hash[key] = false;
+          }
+        }
+
+        for (temp = 0; temp < n; temp += 1) {
+          key = r.toString() + ' ' + temp.toString();
+          console.log(mat[r][temp], c);
+          if (mat[r][temp] !== 0) {
+            mat[r][temp] = 0;
+            hash[key] = true;
+          } else {
+            hash[key] = false;
+          }
+        }
+      }
+      hash[key] = true;
+    }
+  }
+
+  return mat;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

@@ -13,6 +13,44 @@
  * Assume you are dealing with ASCII characters only.
  */
 
+
+
+function remove_dupli_buffer (str_arr) {
+  var len = str_arr.length, buffer = [], i, cur;
+
+  for (i = 0; i < len; i += 1) {
+    cur = str_arr[i];
+    if (buffer.indexOf(cur) === -1) {
+      buffer.push(cur);
+    }
+  }
+
+  return buffer;
+}
+
+
+// Since we said that is ASCII characters, should be aware of the hash function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
  /**

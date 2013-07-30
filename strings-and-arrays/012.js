@@ -11,6 +11,51 @@
  * n by n matrix, where each cell represents a pixel.
  */
 
+
+function rotate_image (img, direction) {
+    var row = img.length, col = img[0].length, temp, l, cur;
+
+    for (l = 0; l < Math.floor(row / 2); l += 1) {
+        for (cur = l; cur < row - l - 1; cur += 1) {
+            temp = img[cur][l];
+            img[cur][l] = img[row - l - 1][cur];
+            img[row - l - 1][cur] = img[col - 1 - cur][row - l - 1];
+            img[col - 1 - cur][row - l - 1] = img[l][col - 1 - cur];
+            img[l][col - 1 - cur] = temp;
+        }
+    }
+
+    return img;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

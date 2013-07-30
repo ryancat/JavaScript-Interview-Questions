@@ -13,6 +13,71 @@
  * Make sure to update that reference as well.
  */
 
+
+
+
+List.prototype.delete_data = function (data) {
+    var that = this, to_delete = [];
+
+    if (data['checkList']) {
+        if (that === data) {
+            to_delete.push(data);
+        }
+
+        do {
+            if (that.next === data) {
+                that.next = data.last().next;
+                to_delete.push(data);
+            }
+            if (that.next) {
+               that = that.next; 
+            }
+        } while (that.next);
+
+    } else {
+
+        if (that.value === data) {
+            to_delete.push(data);
+        }
+
+        do {
+            if (that.next.value === data) {
+                to_delete.push(that.next);
+                that.next = that.next.next;
+            }
+            that = that.next;
+        } while (that.next);
+
+        
+    }   
+
+    to_delete = null;
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /*____________________________________________________________________________*/
 
 /**

@@ -11,6 +11,43 @@
  * Do not use native helpers like Array.reverse or String.reverse.
  */
 
+function reverse_str_my (str) {
+    var head = 0, tail = str.length - 1, temp, str_arr = str.split('');
+
+    while (head < tail) {
+        temp = str_arr[head];
+        str_arr[head] = str_arr[tail];
+        str_arr[tail] = temp;
+        head += 1;
+        tail -= 1;
+    }
+
+    return str_arr.join('');
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 

@@ -11,6 +11,56 @@
  * at the beginning of the loop.
  */
 
+function find_circle_start () {
+    if (!isAcyclicList) {
+        return null;
+    }
+
+
+    var cur1 = head, cur2 = head;
+
+    while (cur1 && cur2) {
+        if (cur1.next && cur2.next.next) {
+            cur1 = cur1.next;
+            cur2 = cur2.next.next;
+
+            if (cur1 === cur2) {
+                break;
+            }
+        }
+    }
+
+    cur1 = head;
+    while(cur1 !== cur2) {
+        cur1 = cur1.next;
+        cur2 = cur2.next;
+    }
+
+    return cur1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**
