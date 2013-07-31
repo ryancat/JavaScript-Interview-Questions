@@ -10,6 +10,49 @@
  * Implement the algorithm in 004.js using recursion.
  */
 
+
+
+function findNodeBSTre (r, value) {
+  if (!r) {
+    return null;
+  }
+  console.log(r.value);
+  if (r.value === value) {
+    return r;
+  }
+
+  if (r.value > value) {
+    return findNodeBSTre(r.left, value);
+  }
+
+  return findNodeBSTre(r.right, value);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

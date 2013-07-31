@@ -10,6 +10,44 @@
  * Define a binary tree node structure in JavaScript.
  */
 
+
+function BinaryT (value, left, right) {
+    this.left = left;
+    this.right = right;
+    this.value = value;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

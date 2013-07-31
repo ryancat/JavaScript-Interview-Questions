@@ -12,6 +12,53 @@
  * Use the tree you created in 003.js to test your algorithm.
  */
 
+
+var root_my = n0;
+var MIN = -1, MAX = 10000;
+
+function findNodeBST (r, value) {
+    var low = MIN, high = MAX;
+
+    while (high > low && r) {
+        if (value < r.value) {
+            high = r.value;
+            r = r.left;
+        } else if (value > r.value) {
+            low = r.value;
+            r = r.right;
+        } else {
+            return r;
+        }
+    }
+
+    return null;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

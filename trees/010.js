@@ -12,6 +12,45 @@
   * Use the Node structure in 007.js
   */
 
+
+function make_BT_minH (arr, p) {
+  if (!arr) {
+    return true;
+  }
+  p.value = get_mid(arr);
+  make_BT_minH(arr.slice(0, arr.indexOf(p.value)), p.left);
+  make_BT_minH(arr.slice(arr.indexOf(p.value) + 1), p.right);
+}
+
+function get_mid (arr){
+  return arr[floor(arr.length/2)];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 function addToTree(ar, start, end) {

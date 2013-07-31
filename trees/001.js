@@ -41,6 +41,158 @@
  * Hint: You can use the `Module Pattern`.
  */
 
+
+// var Node_my = (function () {
+
+//     return function (leaf_arr, val) {
+//         this.getChild = function (idx) {
+//             return leaf_arr[idx];
+//         };
+
+//         this.getValue = function () {
+//             return val;
+//         };
+//     }
+// })();
+
+
+var Node_my_1 = function (leaf_arr, val) {
+
+    var childCount = 0, i = 0, tot_child_num;
+    if (leaf_arr) {
+        childCount = leaf_arr.length;
+    }
+    tot_child_num = childCount;
+
+    this.getChild = function (idx) {
+        return leaf_arr[idx];
+    };
+
+    this.getValue = function () {
+        return val;
+    };
+
+    this.getChildCount = function () {
+
+        while (i < childCount) {
+            tot_child_num += this.getChild(i).getChildCount();
+            i += 1;
+        }
+
+        return tot_child_num;
+    };
+};
+
+
+var $Tree_my = (function (my, undefined) {
+
+    var nodes = {}, root = null, node_count = 0, this_node = null, priv_key = "love";
+
+    var hash = function (pub_key) {
+        var use_key = priv_key + pub_key, i, len, key = 0;
+        len = use_key.length;
+        for (i = 0; i < len; i += 1) {
+            key += use_key.charCodeAt(i)
+        }
+        return key;
+    };
+
+    my.fn = {
+        getRoot: function () {
+            return root;
+        },
+
+        getChildrenCount: function () {
+            return node_count;
+        }
+    };
+
+    my.Node = function (child_arr, value) {
+        var cur_node = {
+            value: value,
+            children: child_arr || []
+        }, i, len = 0;
+
+        if (child_arr) {
+            len = child_arr.length;
+        }
+        this.id = hash(Math.pow(len + value, value).toString());
+        while (nodes[this.id]) {
+            this.id = this.id + '1';
+        }
+        nodes[this.id] = cur_node;
+
+        if (node_count === 0) {
+            root = this.id;
+        }
+
+        for (i = 0; i < len; i += 1) {
+            if (root === child_arr[i].id) {
+                root = this.id;
+            }
+        }     
+
+        node_count += 1;
+
+        console.log(nodes);
+        
+    };
+
+    my.Node.prototype = {
+        getChild: function (idx) {
+            if (nodes[this.id]) {
+                return nodes[this.id].children[idx];
+            }
+            
+            return null;
+            
+        },
+
+        getValue: function () {
+            if (nodes[this.id]) {
+                return nodes[this.id].value;
+            }
+
+            return null;
+        }, 
+
+        getChildCount: function () {
+            var tot_children = 0, j;
+            if (nodes[this.id]) {
+                for (j = 0; j < nodes[this.id].children.length; j += 1) {
+                    tot_children += nodes[this.id].children[j].getChildCount();
+                }
+
+                return tot_children + nodes[this.id].children.length;
+            }
+        }
+    };
+
+
+    return my;
+
+})($Tree_my || {});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 (function(context) {
