@@ -10,6 +10,48 @@
  * Write a function that calculates the factorial of a given number recursively.
  */
 
+
+
+function factorial_my (num) {
+    if (num < 0) {
+        return null;
+    }
+
+    if (num === 1 || num === 0) {
+        return 1;
+    }
+
+    return num * factorial_my(num - 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

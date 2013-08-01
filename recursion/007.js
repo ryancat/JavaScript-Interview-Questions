@@ -11,6 +11,37 @@
  * Do *not* use recursion.
  */
 
+
+
+
+
+// CountDown QuickPerm Algorithm". 
+// So hard to understand!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 
@@ -48,7 +79,7 @@ function print(str) {
  * ref: http://permute.tchs.info/01example.php
  *
  * @param {String} str - the `String` to permute.
- */
+ */ 
 function permute(str) {
     var len = str.length;
     var p = [];

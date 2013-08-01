@@ -11,6 +11,65 @@
  * starting from 1 character length to the length of the string.
  */
 
+
+
+function print_combination (str, result) {
+    var len; 
+    if (!str) {
+        return []; 
+    }
+    console.log(str);
+    len = str.length;
+    if (len > 1) {
+        return add_front(str[0], print_combination(str.slice(1), result));
+
+    } else {
+        if (len === 1) {
+            return [str[0]];
+        } else {
+            return [];
+        }
+    }
+}
+
+
+function add_front(str, result) {
+    var len = result.length, i;
+    result.push(str);
+    for (i = 0; i < len; i += 1) {
+        result.push(str + result[i]);
+    }
+
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

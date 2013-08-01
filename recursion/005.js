@@ -10,6 +10,60 @@
  * Implement the binarySearch function in 004.js *without* using recursion.
  */
 
+
+function b_search_my_norec (array, lower, upper, target) {
+    var mid, len, cur;
+
+    if (!array) {
+        return false;
+    }
+
+
+    while (upper >= lower) {
+        mid = Math.floor((upper - lower) / 2) + lower;
+        cur = array[mid];
+        if (cur === target) {
+            return mid;
+        } else if (cur < target) {
+            lower = mid + 1;
+        } else {
+            upper = mid - 1;
+        }
+    }
+
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

@@ -10,6 +10,62 @@
  * Implement getAllFactorials method in 002.js *without* using recursion.
  */
 
+
+function factorial_no_rec (n) {
+    var result = 1;
+    if (n <= 1) {
+        return 1;
+    }
+    while (n > 1) {
+        result *= n;
+        n -= 1;
+    }
+
+    return result;
+}
+
+
+function getAllFactorials_my (n) {
+    var result = [];
+    if (n <= 1) {
+        return 1;
+    }
+    while (n > 1) {
+        result.push(factorial_no_rec(n));
+        n -= 1;
+    }
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 

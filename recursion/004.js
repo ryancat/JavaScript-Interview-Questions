@@ -14,6 +14,61 @@
  *      function binarySearch(array, lower, upper, target);
  */
 
+
+function binarySearch_my (array, lower, upper, target) {
+    var mid, len;
+
+    if (!array) {
+        return false;
+    }
+
+    len = upper - lower;
+    mid = Math.floor(len / 2) + lower;
+
+    if (array[mid] === target) {
+        return mid;
+    }
+
+    if (array[mid] < target) {
+        lower = mid + 1;
+    } else {
+        upper = mid - 1;
+    }
+    if (upper < lower) {
+        return false;
+    }
+
+    return binarySearch_my(array, lower, upper, target);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

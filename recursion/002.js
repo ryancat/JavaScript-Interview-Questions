@@ -12,6 +12,46 @@
  * For instance for 6 the function should return [720, 120, 24, 6, 2, 1]
  */
 
+
+
+
+function get_factorial_arr (num, arr) {
+    if (num > 0) {
+        arr.push(factorial_my(num));
+        num -= 1;
+        return get_factorial_arr(num, arr);
+    }
+    return arr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 

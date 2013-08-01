@@ -13,7 +13,91 @@
  * given 'abc', your routine shall produce 'abc' 'acb' 'bac' 'bca' 'cab' 'cba'.
  */
 
+
+
+function print_string_permu (str) {
+    var result = [], len, i;
+
+    if (!str) {
+        return [];
+    }
+
+    len = str.length;
+
+    result = print_string_permu_helper(str, result);
+
+    for (i = 0; i < result.length; i += 1) {
+        if (result[i].length === len) {
+            break;
+        }
+    }
+
+    return result.slice(i);
+
+}
+
+function print_string_permu_helper (str, result) {
+    var cur, len, cur_arr, i, j, cur_len;
+
+    if (!str) {
+        return [];
+    }
+
+
+    len = str.length;
+
+    if (len === 1) {
+        return [str];
+    }
+
+    cur = str[0]
+    cur_arr = print_string_permu_helper(str.slice(1), result);
+    cur_len = cur_arr.length;
+
+    console.log(cur_arr, cur_len, cur, len);
+
+    for (i = 0; i < cur_len; i += 1) {
+        for (j = 0; j < len; j += 1) {
+            result.push(insertAtPos(cur_arr[i], j, cur));
+        }
+    }
+
+    return result;
+}
+
+function insertAtPos (str, pos, char) {
+    return str.slice(0, pos) + char + str.slice(pos);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
+
+// not really clear!!
 
 function permute(str) {
     var len = str.length;

@@ -18,6 +18,74 @@
  * Write a program to move the disks from the first rod to the last.
  */
 
+
+var Tower_my = function (r1, r2, r3) {
+    this.rod = [r1 || [], r2 || [], r3 || []];
+    this.num_disk = this.rod[0].length + this.rod[1].length + this.rod[2].length;
+};
+
+Tower_my.prototype.show = function () {
+    console.log(this.rod[0], this.rod[1], this.rod[2]);
+};
+
+Tower_my.prototype.move = function (r_from, r_to) {
+    if (this.rod[r_from] && this.rod[r_to]) {
+        this.rod[r_to].push(this.rod[r_from].pop());
+    }
+    console.log(this.rod[0], this.rod[1], this.rod[2]);
+};
+
+Tower_my.prototype.maker = function (n) {
+    this.rod[0] = [];
+    this.rod[1] = [];
+    this.rod[2] = [];
+    while (n > 0) {
+        this.rod[0].push(n);
+        n -= 1;
+    }
+};
+
+Tower_my.prototype.solver = function (r_from, r_to) {
+    var target, r_other;
+    if (this.rod[r_from].length === 1) {
+        this.move(r_from, r_to);
+        return;
+    }
+
+    target = this.rod[r_from].shift();
+    if (target) {
+        r_other = 3 - r_from - r_to;
+        this.solver(r_from, r_other);
+        this.rod[r_from].push(target);
+        this.move(r_from, r_to);
+        this.solver(r_other, r_to);
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**
