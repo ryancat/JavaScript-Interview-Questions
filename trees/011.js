@@ -15,9 +15,40 @@
 
 
 
+function is_same_T (tree1, tree2) {
+    if (!tree1 && !tree2) {
+        return true;
+    }
 
+    while (tree1 && tree2) {
+        if (tree1.value === tree2.value) {
+          return is_same_T(tree1.left, tree2.left) && is_same_T(tree1.right, tree2.right);  
+        }
+        return false;
+    }
 
+    return false;
+}
 
+function is_subtree (tree1, tree2) {
+    if (!tree1) {
+        return true;
+    }
+
+    return is_subtree_helper(tree1, tree2);
+}
+
+function is_subtree_helper (tree1, tree2) {
+    if (!tree2) {
+        return false;
+    }
+
+    if (tree1.value === tree2.value) {
+        return is_same_T(tree1, tree2);
+    } else {
+        return is_subtree_helper (tree1, tree2.left) && is_subtree_helper(tree1, tree2.right);
+    }
+}
 
 
 

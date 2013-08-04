@@ -12,6 +12,78 @@
  * The stack should have push(int), pop(), and peek() methods.
  */
 
+var List_my = function (value, next) {
+    this.value = value;
+    this.next = next;
+};
+
+var Stack_my = function (n) {
+    var cur, head, tail;
+
+    if (n <= 0) {
+        return null;
+    }
+    head = new List_my(0, null);
+    tail = head;
+
+    while (n > 1) {
+        cur = new List_my(0, head);
+        head = cur;
+        n -= 1;
+    }
+
+    this.head = head;
+}
+
+Stack_my.prototype = {
+    push: function (value) {
+        var new_node = new List_my(value);
+        if (new_node) {
+            new_node.next = this.head;
+            this.head = new_node;
+        }
+    },
+
+    pop: function () {
+        var to_pop = this.head;
+        this.head = this.head.next;
+
+        to_pop.next = null;
+        return to_pop.value;
+    }, 
+
+    peek: function () {
+        return this.head.value;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

@@ -15,6 +15,48 @@
  *      }
  */
 
+
+
+var StackWithMin_my = function () {};
+
+StackWithMin_my.prototype = new Stack_my();
+
+
+
+
+StackWithMin_my.prototype.min = function () {
+    var result = Number.MAX_VALUE, cur = this.head;
+
+    while (cur) {
+        if (typeof cur.value === 'number' && cur.value < result) {
+            result = cur.value;
+        }
+
+        cur = cur.next;
+    }
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

@@ -11,6 +11,50 @@
  * returns the minimum of the Stack.
  */
 
+
+Stack_my.prototype.min = function () {
+    var result, cur = this.head;
+
+    while (cur) {
+        if (typeof (cur.value) === 'number' && (cur.value < result || !result)) {
+            result = cur.value;
+        }
+
+        cur = cur.next;
+    }
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**

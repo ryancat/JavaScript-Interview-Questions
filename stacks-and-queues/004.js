@@ -11,6 +11,78 @@
  * Use the Stack implementation in 001.js
  */
 
+
+var Queue_2stack = function (n) {
+    var head1, head2, cur;
+
+    head1 = new Stack_my(n);
+    head2 = new Stack_my(n);
+
+    this.head = head1.head;
+    this.tail = head2.head;
+}
+
+Queue_2stack.prototype = {
+    push: function (value) {
+        var cur1 = new List_my(value), cur2 = this.tail;
+        cur1.next = this.head;
+        this.head = cur1;
+
+        while (true) {
+            if (cur2.next) {
+               cur2 = cur2.next; 
+           } else {
+                break;
+           }
+            
+        }
+
+        cur2.next = cur1;
+    },
+
+    pop: function () {
+        var cur2 = this.tail, cur1 = this.head;
+
+        while (cur1.next) {
+            if (cur1.next.next) {
+                cur1 = cur1.next;
+            } else {
+                break;
+            }
+        }
+        
+        cur1.next = null;
+        return cur2;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*____________________________________________________________________________*/
 
 /**
